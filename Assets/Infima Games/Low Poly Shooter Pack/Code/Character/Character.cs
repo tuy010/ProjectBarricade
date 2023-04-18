@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+using System.Diagnostics;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -177,7 +178,7 @@ namespace InfimaGames.LowPolyShooterPack
 		/// <summary>
 		/// The currently equipped weapon.
 		/// </summary>
-		private WeaponBehaviour equippedWeapon;
+		[SerializeField]private WeaponBehaviour equippedWeapon;
 		/// <summary>
 		/// The equipped weapon's attachment manager.
 		/// </summary>
@@ -1086,7 +1087,11 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if (!CanPlayAnimationReload())
 				return;
-			
+
+			//No Ammon
+			if (equippedWeapon.GetAmmoHave() <= 0)
+				return;
+
 			//Switch.
 			switch (context)
 			{
@@ -1396,8 +1401,11 @@ namespace InfimaGames.LowPolyShooterPack
 		public override void FillAmmunition(int amount)
 		{
 			//Notify the weapon to fill the ammunition by the amount.
-			if(equippedWeapon != null)
-				equippedWeapon.FillAmmunition(amount);
+			if (equippedWeapon != null )
+			{                
+                equippedWeapon.FillAmmunition(amount);
+            }
+                
 		}
 		/// <summary>
 		/// Grenade.

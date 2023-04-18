@@ -1,5 +1,7 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using System.Security.Cryptography.X509Certificates;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -137,6 +139,14 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private AudioClip audioClipBoltAction;
 
+        [Title(label: "GamePlay")] //Edited
+        [SerializeField]
+        private int ammunitionCurrent;
+        [SerializeField]
+        private int ammoHave;
+        [SerializeField]
+        private bool isInfiniteAmmo;
+
         #endregion
 
         #region FIELDS
@@ -153,7 +163,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Amount of ammunition left.
         /// </summary>
-        private int ammunitionCurrent;
+        ////////////private int ammunitionCurrent;
 
         #region Attachment Behaviours
         
@@ -216,6 +226,7 @@ namespace InfimaGames.LowPolyShooterPack
         }
         protected override void Start()
         {
+            
             #region Cache Attachment References
 
             //Get Scope.
@@ -232,9 +243,24 @@ namespace InfimaGames.LowPolyShooterPack
             gripBehaviour = attachmentManager.GetEquippedGrip();
 
             #endregion
+            if (isInfiniteAmmo)
+            {
+                ammoHave = int.MaxValue;
+                ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
+            }
+            else
+            {
+                if (ammoHave < magazineBehaviour.GetAmmunitionTotal())
+                {
+                    ammunitionCurrent = ammoHave;
+                }
+                else
+                {
+                    ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
+                }
+                ammoHave = Mathf.Clamp(ammoHave - magazineBehaviour.GetAmmunitionTotal(), 0, 9999);
+            }
 
-            //Max Out Ammo.
-            ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
         }
 
         #endregion
@@ -338,6 +364,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// GetAmmunitionCurrent.
         /// </summary>
         public override int GetAmmunitionCurrent() => ammunitionCurrent;
+
+        public override int GetAmmoHave() => ammoHave;
 
         /// <summary>
         /// GetAmmunitionTotal.
@@ -461,8 +489,32 @@ namespace InfimaGames.LowPolyShooterPack
         public override void FillAmmunition(int amount)
         {
             //Update the value by a certain amount.
-            ammunitionCurrent = amount != 0 ? Mathf.Clamp(ammunitionCurrent + amount, 
-                0, GetAmmunitionTotal()) : magazineBehaviour.GetAmmunitionTotal();
+            //if(amount != 0)
+            //{
+            //    ammunitionCurrent = Mathf.Clamp(ammunitionCurrent + amount, 0, GetAmmunitionTotal());
+            //}
+            //else
+            //{
+            //    ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
+            //}
+
+            if (isInfiniteAmmo)
+            {
+                ammoHave = int.MaxValue;
+                ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
+            }
+            else
+            {
+                int magazineMax = magazineBehaviour.GetAmmunitionTotal();
+                int ammoNeed = magazineMax - ammunitionCurrent;
+
+                if (ammoHave < ammoNeed)
+                    ammunitionCurrent = ammoHave;
+                else
+                    ammunitionCurrent = magazineMax;
+                ammoHave = Mathf.Clamp(ammoHave - ammoNeed, 0, 9999);
+            }
+
         }
         /// <summary>
         /// SetSlideBack.

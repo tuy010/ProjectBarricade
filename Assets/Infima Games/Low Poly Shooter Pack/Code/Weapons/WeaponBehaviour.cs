@@ -92,6 +92,10 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public abstract int GetAmmunitionCurrent();
         /// <summary>
+        /// Returns Have Ammunition. 
+        /// </summary
+        public abstract int GetAmmoHave();
+        /// <summary>
         /// Returns Total Ammunition.
         /// </summary>
         public abstract int GetAmmunitionTotal();
