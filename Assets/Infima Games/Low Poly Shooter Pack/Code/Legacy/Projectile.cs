@@ -148,6 +148,17 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
+
+			//If bullet collides with "Zombie" tag
+			if (collision.transform.tag == "Zombie")
+			{
+				//Toggle "isHit" on target object
+				collision.transform.gameObject.GetComponent
+					<ZombieTestScript>().anim.SetTrigger("hitted");
+
+				//Destroy bullet object
+				Destroy(gameObject);
+			}
 		}
 
 		private IEnumerator DestroyTimer()

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 77610138}
   m_Layer: 0
   m_Name: Cube_1
-  m_TagString: Untagged
+  m_TagString: Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 128335006}
   m_Layer: 0
   m_Name: Cube_3
-  m_TagString: Untagged
+  m_TagString: Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie_Bellboy_Male_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1418193975600942, guid: 2165f6a67f710bc47a7cfc0882e7e964, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
+      objectReference: {fileID: 0}
     - target: {fileID: 4243538704547566, guid: 2165f6a67f710bc47a7cfc0882e7e964, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -399,7 +403,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &207046936
 MonoBehaviour:
@@ -413,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6424a905162a94f88ffa8445e50aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   isHit: 0
   audioSource: {fileID: 0}
   Sound: {fileID: 0}
@@ -637,7 +642,7 @@ GameObject:
   - component: {fileID: 983417020}
   m_Layer: 0
   m_Name: Cube_2
-  m_TagString: Untagged
+  m_TagString: Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,7 +833,7 @@ GameObject:
   - component: {fileID: 1735858558}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

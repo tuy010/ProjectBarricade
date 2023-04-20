@@ -16,8 +16,7 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: "Copied Avatar Rig Configuration mis-match. Transform hierarchy
-      does not match:\n\tTransform 'mixamorig:Hips' for human bone 'Hips' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -37,7 +36,7 @@ ModelImporter:
       name: reaction
       takeName: mixamo.com
       internalID: 1827226128182048838
-      firstFrame: 0
+      firstFrame: 18
       lastFrame: 130
       wrapMode: 0
       orientationOffsetY: 0

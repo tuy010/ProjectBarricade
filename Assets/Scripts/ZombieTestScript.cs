@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombieTestScript : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     //Used to check if the target has been hit
     public bool isHit = false;
 
