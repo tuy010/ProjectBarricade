@@ -17,6 +17,8 @@ TagManager:
   - Dirt (Static)
   - Wood
   - Inventory
+  - Enemy
+  - Sys
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Barricade
   - Wall
   - First Person View
   - Character

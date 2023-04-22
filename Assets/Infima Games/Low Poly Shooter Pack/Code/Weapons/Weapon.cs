@@ -1,5 +1,7 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using InfimaGames.LowPolyShooterPack.Legacy;
+using System;
 using System.Security.Cryptography.X509Certificates;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -139,7 +141,15 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private AudioClip audioClipBoltAction;
 
-        [Title(label: "GamePlay")] //Edited
+        [Title("Bullet")]
+        [SerializeField]
+        private float bulletDMG;
+        [SerializeField]
+        private bool isStunBullet;
+        [SerializeField]
+        private bool isPenetrate;
+
+        [Title("Magazine")]
         [SerializeField]
         private int ammunitionCurrent;
         [SerializeField]
@@ -158,7 +168,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Attachment Manager.
         /// </summary>
-        private WeaponAttachmentManagerBehaviour attachmentManager;
+        [SerializeField] private WeaponAttachmentManagerBehaviour attachmentManager;
 
         /// <summary>
         /// Amount of ammunition left.
@@ -166,29 +176,29 @@ namespace InfimaGames.LowPolyShooterPack
         ////////////private int ammunitionCurrent;
 
         #region Attachment Behaviours
-        
+
         /// <summary>
         /// Equipped scope Reference.
         /// </summary>
-        private ScopeBehaviour scopeBehaviour;
-        
+        [SerializeField] private ScopeBehaviour scopeBehaviour;
+
         /// <summary>
         /// Equipped Magazine Reference.
         /// </summary>
-        private MagazineBehaviour magazineBehaviour;
+        [SerializeField] private MagazineBehaviour magazineBehaviour;
         /// <summary>
         /// Equipped Muzzle Reference.
         /// </summary>
-        private MuzzleBehaviour muzzleBehaviour;
+        [SerializeField] private MuzzleBehaviour muzzleBehaviour;
 
         /// <summary>
         /// Equipped Laser Reference.
         /// </summary>
-        private LaserBehaviour laserBehaviour;
+        [SerializeField] private LaserBehaviour laserBehaviour;
         /// <summary>
         /// Equipped Grip Reference.
         /// </summary>
-        private GripBehaviour gripBehaviour;
+        [SerializeField] private GripBehaviour gripBehaviour;
 
         #endregion
 
@@ -223,15 +233,17 @@ namespace InfimaGames.LowPolyShooterPack
             characterBehaviour = gameModeService.GetPlayerCharacter();
             //Cache the world camera. We use this in line traces.
             playerCamera = characterBehaviour.GetCameraWorld().transform;
+
+            
+
         }
         protected override void Start()
         {
-            
             #region Cache Attachment References
 
             //Get Scope.
             scopeBehaviour = attachmentManager.GetEquippedScope();
-            
+
             //Get Magazine.
             magazineBehaviour = attachmentManager.GetEquippedMagazine();
             //Get Muzzle.
@@ -243,6 +255,7 @@ namespace InfimaGames.LowPolyShooterPack
             gripBehaviour = attachmentManager.GetEquippedGrip();
 
             #endregion
+
             if (isInfiniteAmmo)
             {
                 ammoHave = int.MaxValue;
@@ -260,7 +273,6 @@ namespace InfimaGames.LowPolyShooterPack
                 }
                 ammoHave = Mathf.Clamp(ammoHave - magazineBehaviour.GetAmmunitionTotal(), 0, 9999);
             }
-
         }
 
         #endregion
@@ -471,7 +483,7 @@ namespace InfimaGames.LowPolyShooterPack
             for (var i = 0; i < shotCount; i++)
             {
                 //Determine a random spread value using all of our multipliers.
-                Vector3 spreadValue = Random.insideUnitSphere * (spread * spreadMultiplier);
+                Vector3 spreadValue = UnityEngine.Random.insideUnitSphere * (spread * spreadMultiplier);
                 //Remove the forward spread component, since locally this would go inside the object we're shooting!
                 spreadValue.z = 0;
                 //Convert to world space.
@@ -481,6 +493,7 @@ namespace InfimaGames.LowPolyShooterPack
                 GameObject projectile = Instantiate(prefabProjectile, playerCamera.position, Quaternion.Euler(playerCamera.eulerAngles + spreadValue));
                 //Add velocity to the projectile.
                 projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * projectileImpulse;
+                projectile.GetComponent<ProjectileCustom>().SetBulletStates(bulletDMG, isStunBullet, isPenetrate);
             }
         }
 
@@ -501,19 +514,37 @@ namespace InfimaGames.LowPolyShooterPack
 
             if (isInfiniteAmmo)
             {
-                ammoHave = int.MaxValue;
-                ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
+                if (amount != 0)
+                {
+                    ammunitionCurrent = Mathf.Clamp(ammunitionCurrent + amount, 0, GetAmmunitionTotal());
+                }
+                else
+                {
+                    ammoHave = int.MaxValue;
+                    ammunitionCurrent = magazineBehaviour.GetAmmunitionTotal();
+                }
             }
             else
             {
-                int magazineMax = magazineBehaviour.GetAmmunitionTotal();
-                int ammoNeed = magazineMax - ammunitionCurrent;
-
-                if (ammoHave < ammoNeed)
-                    ammunitionCurrent = ammoHave;
+                if (amount != 0)
+                {
+                    if(ammoHave >= amount)
+                    {
+                        ammunitionCurrent = Mathf.Clamp(ammunitionCurrent + amount, 0, GetAmmunitionTotal());
+                        ammoHave -= amount;
+                    }          
+                }
                 else
-                    ammunitionCurrent = magazineMax;
-                ammoHave = Mathf.Clamp(ammoHave - ammoNeed, 0, 9999);
+                {
+                    int magazineMax = magazineBehaviour.GetAmmunitionTotal();
+                    int ammoNeed = magazineMax - ammunitionCurrent;
+
+                    if (ammoHave < ammoNeed)
+                        ammunitionCurrent = ammoHave;
+                    else
+                        ammunitionCurrent = magazineMax;
+                    ammoHave = Mathf.Clamp(ammoHave - ammoNeed, 0, 9999);
+                }           
             }
 
         }
@@ -537,7 +568,13 @@ namespace InfimaGames.LowPolyShooterPack
                 Instantiate(prefabCasing, socketEjection.position, socketEjection.rotation);
         }
 
-
+        public override void AddAmmo(int amount = -1)
+        {
+            if(amount == -1)
+                ammoHave += magazineBehaviour.GetAmmunitionTotal();
+            else
+                ammoHave += amount;
+        }
 
         #endregion
     }

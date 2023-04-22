@@ -199,6 +199,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public abstract void EjectCasing();
 
+        public abstract void AddAmmo(int amount = -1);
+
         #endregion
     }
 }
