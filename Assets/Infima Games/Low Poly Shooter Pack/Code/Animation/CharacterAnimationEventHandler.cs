@@ -146,6 +146,13 @@ namespace InfimaGames.LowPolyShooterPack
 				playerCharacter.SetSlideBack(back);
 		}
 
+		//캐릭터 사망 애니메이션
+		private void OnDeath(int back)
+		{
+			//Notify the character.
+			if (playerCharacter != null)
+				playerCharacter.SetSlideBack(back);
+		}
 		#endregion
 	}   
 }
