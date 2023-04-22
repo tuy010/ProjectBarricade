@@ -366,6 +366,7 @@ namespace InfimaGames.LowPolyShooterPack
         public override int GetAmmunitionCurrent() => ammunitionCurrent;
 
         public override int GetAmmoHave() => ammoHave;
+        public override bool IsinfiniteAmmo() => isInfiniteAmmo;
 
         /// <summary>
         /// GetAmmunitionTotal.
@@ -420,7 +421,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// GetAttachmentManager.
         /// </summary>
         public override WeaponAttachmentManagerBehaviour GetAttachmentManager() => attachmentManager;
-
+ 
         #endregion
 
         #region METHODS
@@ -535,6 +536,8 @@ namespace InfimaGames.LowPolyShooterPack
             if(prefabCasing != null && socketEjection != null)
                 Instantiate(prefabCasing, socketEjection.position, socketEjection.rotation);
         }
+
+
 
         #endregion
     }

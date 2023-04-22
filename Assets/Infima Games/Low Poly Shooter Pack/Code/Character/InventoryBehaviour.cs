@@ -27,6 +27,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public abstract WeaponBehaviour GetEquipped();
 
+        public abstract WeaponBehaviour GetWeaponByIndex(int idx);
+
         /// <summary>
         /// Returns the currently equipped index. Meaning the index in the weapon array of the equipped weapon.
         /// </summary>

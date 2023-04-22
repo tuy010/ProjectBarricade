@@ -1321,8 +1321,108 @@ namespace InfimaGames.LowPolyShooterPack
 					break;
 			}
 		}
-		
-		public void OnLockCursor(InputAction.CallbackContext context)
+        public void OnTryInventoryIndex00(InputAction.CallbackContext context)
+        {
+            //Block while the cursor is unlocked.
+            if (!cursorLocked)
+                return;
+
+            //Null Check.
+            if (inventory == null)
+                return;
+
+            //Switch.
+            switch (context)
+            {
+                //Performed.
+                case { phase: InputActionPhase.Performed }:
+                    //Get the index increment direction for our inventory using the scroll wheel direction. If we're not
+                    //actually using one, then just increment by one.
+                    float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+
+                    //Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
+                    if (CanChangeWeapon())
+                        StartCoroutine(nameof(Equip), 0);
+                    break;
+            }
+        }
+        public void OnTryInventoryIndex01(InputAction.CallbackContext context)
+        {
+            //Block while the cursor is unlocked.
+            if (!cursorLocked)
+                return;
+
+            //Null Check.
+            if (inventory == null)
+                return;
+
+            //Switch.
+            switch (context)
+            {
+                //Performed.
+                case { phase: InputActionPhase.Performed }:
+                    //Get the index increment direction for our inventory using the scroll wheel direction. If we're not
+                    //actually using one, then just increment by one.
+                    float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+
+                    //Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
+                    if (CanChangeWeapon())
+                        StartCoroutine(nameof(Equip), 1);
+                    break;
+            }
+        }
+        public void OnTryInventoryIndex02(InputAction.CallbackContext context)
+        {
+            //Block while the cursor is unlocked.
+            if (!cursorLocked)
+                return;
+
+            //Null Check.
+            if (inventory == null)
+                return;
+
+            //Switch.
+            switch (context)
+            {
+                //Performed.
+                case { phase: InputActionPhase.Performed }:
+                    //Get the index increment direction for our inventory using the scroll wheel direction. If we're not
+                    //actually using one, then just increment by one.
+                    float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+
+                    //Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
+                    if (CanChangeWeapon())
+                        StartCoroutine(nameof(Equip), 2);
+                    break;
+            }
+        }
+        public void OnTryInventoryIndex03(InputAction.CallbackContext context)
+        {
+            //Block while the cursor is unlocked.
+            if (!cursorLocked)
+                return;
+
+            //Null Check.
+            if (inventory == null)
+                return;
+
+            //Switch.
+            switch (context)
+            {
+                //Performed.
+                case { phase: InputActionPhase.Performed }:
+                    //Get the index increment direction for our inventory using the scroll wheel direction. If we're not
+                    //actually using one, then just increment by one.
+                    float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+
+                    //Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
+                    if (CanChangeWeapon())
+                        StartCoroutine(nameof(Equip), 3);
+                    break;
+            }
+        }
+
+        public void OnLockCursor(InputAction.CallbackContext context)
 		{
 			//Switch.
 			switch (context)

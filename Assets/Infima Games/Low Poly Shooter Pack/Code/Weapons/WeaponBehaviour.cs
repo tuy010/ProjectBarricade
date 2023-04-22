@@ -100,6 +100,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public abstract int GetAmmunitionTotal();
 
+        public abstract bool IsinfiniteAmmo();
+
         /// <summary>
         /// Determines if this Weapon reloads in cycles.
         /// </summary>

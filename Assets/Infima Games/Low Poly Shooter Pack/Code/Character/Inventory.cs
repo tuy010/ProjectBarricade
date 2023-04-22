@@ -92,6 +92,11 @@ namespace InfimaGames.LowPolyShooterPack
             return newIndex;
         }
 
+        public override WeaponBehaviour GetWeaponByIndex(int idx)
+        {
+            return weapons[idx];
+        }
+
         public override WeaponBehaviour GetEquipped() => equipped;
         public override int GetEquippedIndex() => equippedIndex;
 
