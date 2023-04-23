@@ -62,7 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90917e6725b12e242bad37d9bd201329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 10
   hp: 1
+  hpUIPrefab: {fileID: 8079788102458625646, guid: 5d9f6f93f6f9ae7429adaf55b4f1e793,
+    type: 3}
   audioSource: {fileID: 224111595361044472}
   hittedSounds:
   - {fileID: 8300000, guid: 40668da1b2ef95b4ab1effb12539f51f, type: 3}
@@ -71,6 +74,7 @@ MonoBehaviour:
   crashedSounds:
   - {fileID: 8300000, guid: ce0994e095d177347908e2135ff25137, type: 3}
   - {fileID: 8300000, guid: 48be64cd4af36294b90ccd63e74cad8b, type: 3}
+  turnSys: {fileID: 0}
   barricades:
   - {fileID: 5112179746421573925}
   - {fileID: 3435018882352282041}

@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Barricade : MonoBehaviour
 {
     #region FIELD SERIALIZED
     [Title("Status")]
     [SerializeField]
+    private float maxHp;
+    [SerializeField]
     private float hp;
+
     private bool isActive;
+
+    [Title("UI")]
+    [SerializeField]
+    private GameObject hpUIPrefab;
 
     [Title("Audio")]
     [SerializeField]
@@ -29,13 +38,25 @@ public class Barricade : MonoBehaviour
     [SerializeField]
     private GameObject dustParticle;
 
+    private GameObject hpUIobj;
+    
+    #region UNITY
     private void Start()
     {
         //barricades = gameObject.GetComponentsInChildren<Transform>();
         isActive = true;
         if (turnSys == null)
             turnSys = GameObject.FindGameObjectWithTag("Sys").GetComponent<TurnSys>();
+        hp = maxHp;
+
+        hpUIobj = Instantiate(hpUIPrefab);
+
+        hpUIobj.GetComponent<BarricadeHpUI>().InitUI(this);
     }
+    #endregion
+
+    public float GetMaxHp() => maxHp;
+    public float GetHp() => hp;
 
     #region METHODS
     public void GetDmg(float dmg)
@@ -46,9 +67,12 @@ public class Barricade : MonoBehaviour
             isActive = false;
             turnSys.EndGame(this.transform.position);
             playSound(1);
+            Destroy(hpUIobj);
+
             foreach(var bc in barricades)
                 Destroy(bc.gameObject);
             gameObject.GetComponent<BoxCollider>().enabled = false;
+
             Destroy(Instantiate(dustParticle, gameObject.transform.position, Quaternion.identity), 1f);
             Destroy(gameObject, 3f);           
         }
