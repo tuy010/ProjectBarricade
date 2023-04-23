@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90917e6725b12e242bad37d9bd201329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 1
   audioSource: {fileID: 224111595361044472}
   hittedSounds:
   - {fileID: 8300000, guid: 40668da1b2ef95b4ab1effb12539f51f, type: 3}

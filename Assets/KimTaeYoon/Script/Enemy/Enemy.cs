@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
 
     private ScoreAndItem sysScore;
+    private TurnSys sysTurn;
 
     private float soundTimer;
     private float nextSoundDelay;
@@ -98,8 +99,9 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
+        bool isEnd = sysTurn.GetIsEnd();
         //State function 
-        if (nextState == State.NONE)
+        if (nextState == State.NONE && !isEnd)
         {
             switch (nowState)
             {
@@ -165,28 +167,45 @@ public class Enemy : MonoBehaviour
         //Change State
         if (nextState != State.NONE)
         {
-            nowState = nextState;
-            nextState = State.NONE;
-            switch (nowState)
+            if(!isEnd)
             {
-                case State.IDLE:
-                    Idel();
-                    break;
-                case State.MOVE:
-                    Move();
-                    break;
-                case State.ATTACK:
-                    Attack();
-                    break;
-                case State.STUN:
-                    Stun();
-                    break;
-                case State.DYING:
-                    Dying();
-                    break;
+                nowState = nextState;
+                nextState = State.NONE;
+                switch (nowState)
+                {
+                    case State.IDLE:
+                        Idel();
+                        break;
+                    case State.MOVE:
+                        Move();
+                        break;
+                    case State.ATTACK:
+                        Attack();
+                        break;
+                    case State.STUN:
+                        Stun();
+                        break;
+                    case State.DYING:
+                        Dying();
+                        break;
+                }
+            }
+            else
+            {
+                nowState = State.IDLE;
+                Idel();
+                nextState = State.NONE;
+                dir = targetPosition - transform.position;
+                dir.y = 0;
+                dir.Normalize();
+                transform.rotation = Quaternion.LookRotation(dir);
             }
         }
 
+        if(isEnd && nowState != State.IDLE)
+        {
+            nextState = State.IDLE;           
+        }
     }
 
     public void OnDestroy()
@@ -213,9 +232,10 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region METHODS
-    public void InitComponent(ScoreAndItem s, Transform t)
+    public void InitComponent(ScoreAndItem s, TurnSys st,Transform t)
     {
         sysScore = s;
+        sysTurn = st;
         targetPosition = t.position;
     }
     private void InitHitBoxes()

@@ -9,6 +9,7 @@ public class ZombieSpawner : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform target;
     [SerializeField] private ScoreAndItem sysScoreAndItem;
+    [SerializeField] private TurnSys turnSys;
 
     [Title("States")]
     [SerializeField] private float spawnRadius;
@@ -27,6 +28,10 @@ public class ZombieSpawner : MonoBehaviour
     {
         if (target == null)
             targetPoint = new Vector3(0, 0, 0);
+        if (turnSys == null)
+            turnSys = GameObject.FindGameObjectWithTag("Sys").GetComponent<TurnSys>();
+        if (sysScoreAndItem == null)
+            sysScoreAndItem = GameObject.FindGameObjectWithTag("Sys").GetComponent<ScoreAndItem>();
     }
 
     private void Update()
@@ -61,7 +66,7 @@ public class ZombieSpawner : MonoBehaviour
         float randomx = Random.Range(-spawnRadius, +spawnRadius);
         float randomz = Random.Range(-spawnRadius, +spawnRadius);
         GameObject obj = Instantiate(enemy, this.transform.position + new Vector3(randomx, 0, randomz), Quaternion.identity);
-        obj.GetComponent<Enemy>().InitComponent(sysScoreAndItem, target);
+        obj.GetComponent<Enemy>().InitComponent(sysScoreAndItem, turnSys, target);
     }
     #endregion
 }

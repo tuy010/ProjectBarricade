@@ -23,6 +23,8 @@ public class Barricade : MonoBehaviour
 
     [Title("etc")]
     [SerializeField]
+    private TurnSys turnSys;
+    [SerializeField]
     private Transform[] barricades;
     [SerializeField]
     private GameObject dustParticle;
@@ -31,6 +33,8 @@ public class Barricade : MonoBehaviour
     {
         //barricades = gameObject.GetComponentsInChildren<Transform>();
         isActive = true;
+        if (turnSys == null)
+            turnSys = GameObject.FindGameObjectWithTag("Sys").GetComponent<TurnSys>();
     }
 
     #region METHODS
@@ -40,6 +44,7 @@ public class Barricade : MonoBehaviour
         if (hp <= 0 && isActive)
         {
             isActive = false;
+            turnSys.EndGame(this.transform.position);
             playSound(1);
             foreach(var bc in barricades)
                 Destroy(bc.gameObject);
