@@ -1,5 +1,7 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using Unity.VisualScripting;
+
 namespace InfimaGames.LowPolyShooterPack
 {
     public class Inventory : InventoryBehaviour
@@ -20,15 +22,24 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private int equippedIndex = -1;
 
+        private int idxTmp;
         #endregion
-        
+
+        #region UNITY
+        public void Start()
+        {
+            idxTmp = 0;
+            SwapAllWeapon();
+        }
+        #endregion
+
         #region METHODS
-        
+
         public override void Init(int equippedAtStart = 0)
         {
             //Cache all weapons. Beware that weapons need to be parented to the object this component is on!
-            weapons = GetComponentsInChildren<WeaponBehaviour>(true);
-            
+            weapons = GetComponentsInChildren<WeaponBehaviour>(true);          
+
             //Disable all weapons. This makes it easier for us to only activate the one we need.
             foreach (WeaponBehaviour weapon in weapons)
                 weapon.gameObject.SetActive(false);
@@ -66,6 +77,17 @@ namespace InfimaGames.LowPolyShooterPack
             return equipped;
         }
         
+        public void SwapAllWeapon()
+        {
+            idxTmp++;
+            if(idxTmp >= weapons.Length)
+            {
+                Equip(0);
+                return;
+            }
+            Equip(idxTmp);
+            if (idxTmp != weapons.Length) Invoke("SwapAllWeapon", 0.1f);
+        }
         #endregion
 
         #region Getters
@@ -90,6 +112,11 @@ namespace InfimaGames.LowPolyShooterPack
 
             //Return.
             return newIndex;
+        }
+
+        public override WeaponBehaviour GetWeaponByIndex(int idx)
+        {
+            return weapons[idx];
         }
 
         public override WeaponBehaviour GetEquipped() => equipped;
