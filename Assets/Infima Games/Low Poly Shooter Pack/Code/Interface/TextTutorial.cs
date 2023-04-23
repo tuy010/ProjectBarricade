@@ -49,6 +49,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             prompt.enabled = !isVisible;
             //Show the tutorial if needed.
             tutorial.enabled = isVisible;
+
+
         }
 
         #endregion

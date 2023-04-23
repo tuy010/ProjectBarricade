@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using System.Diagnostics;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -46,8 +47,8 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		private void OnAmmunitionFill(int amount = 0)
 		{
-			//Notify the character.
-			if(playerCharacter != null)
+            //Notify the character.
+            if (playerCharacter != null)
 				playerCharacter.FillAmmunition(amount);
 		}
 		/// <summary>

@@ -92,9 +92,15 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public abstract int GetAmmunitionCurrent();
         /// <summary>
+        /// Returns Have Ammunition. 
+        /// </summary
+        public abstract int GetAmmoHave();
+        /// <summary>
         /// Returns Total Ammunition.
         /// </summary>
         public abstract int GetAmmunitionTotal();
+
+        public abstract bool IsinfiniteAmmo();
 
         /// <summary>
         /// Determines if this Weapon reloads in cycles.
@@ -192,6 +198,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// Ejects a casing from the weapon. This is commonly called from animation events, but can be called from anywhere.
         /// </summary>
         public abstract void EjectCasing();
+
+        public abstract void AddAmmo(int amount = -1);
 
         #endregion
     }
