@@ -11,8 +11,6 @@ public class DeathCutscene : MonoBehaviour
     public float offset;
     public float speed;
 
-    private float time = 0f;
-
     GameObject player;
 
     // Start is called before the first frame update
