@@ -324,7 +324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -38.93}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154509664
@@ -419,14 +419,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -730,14 +730,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -850,14 +850,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -941,14 +941,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -1146,14 +1146,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -1286,12 +1286,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1630,10 +1630,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1410257414}
   score: 0
+  GetItemPrefab: {fileID: 4677512951160723467, guid: 9ae54f1522238da4882491f23e39a5df,
+    type: 3}
   characterBehaviour: {fileID: 1164516098}
   assaultRifle: {fileID: 4063940674679693061}
   shotGun: {fileID: 2214960358842421764}
-  sniper: {fileID: 0}
+  sniper: {fileID: 6446807073202077265}
   grenadeChance: 5
   assaultRifleChance: 10
   shotGunChance: 10
@@ -1963,8 +1965,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2139,14 +2141,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -2260,14 +2262,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -2363,14 +2365,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: coolTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
-      propertyPath: monsterCount
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: sysScoreAndItem
+      value: 
+      objectReference: {fileID: 1173356527}
     - target: {fileID: 8405631850318716875, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -2741,19 +2743,7 @@ MonoBehaviour:
     m_ActionId: ba2b842b-3f5c-4fb3-83eb-219eb3515445
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1164516098}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
-        m_MethodName: OnTryHolster
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 4989ad3b-04e9-4d5d-8aeb-d8f00ab4550b
     m_ActionName: Player/Holster[/Keyboard/h,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
@@ -2789,19 +2779,7 @@ MonoBehaviour:
     m_ActionId: b48c7f02-acf4-4c91-9a97-f85d78b40a00
     m_ActionName: Player/Grenade[/Keyboard/g,/XInputControllerWindows/leftShoulder]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1164516098}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
-        m_MethodName: OnTryMelee
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: ee72309b-00d2-4acf-aa85-8779c255d656
     m_ActionName: Player/Melee[/Keyboard/f,/XInputControllerWindows/rightStickPress]
   - m_PersistentCalls:
@@ -2853,51 +2831,15 @@ MonoBehaviour:
     m_ActionId: f2d17bd7-8d54-496b-99fd-8cb954650514
     m_ActionName: Player/Inspect[/Keyboard/t,/XInputControllerWindows/dpad/left]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4190955790245784542}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.TimeHandler, Assembly-CSharp
-        m_MethodName: OnToggle
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: bfdda7d2-cee8-4cb7-91a0-f3d4411e7f97
     m_ActionName: Player/Time Speed Stop[/Keyboard/5]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4190955790245784542}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.TimeHandler, Assembly-CSharp
-        m_MethodName: OnIncrease
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 418359b7-9253-4bb8-a363-e1fb23da7133
     m_ActionName: Player/Time Speed Up[/Keyboard/9,/XInputControllerWindows/dpad/up]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4190955790245784542}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.TimeHandler, Assembly-CSharp
-        m_MethodName: OnDecrease
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: e3ef7edf-7ab7-43b4-8fdc-67547435a45b
     m_ActionName: Player/Time Speed Down[/Keyboard/8,/XInputControllerWindows/dpad/down]
   - m_PersistentCalls:
@@ -5899,6 +5841,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4571380665952302532}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6446807073202077265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5050154433098288859, guid: 1a88e53a973b7684eb43fed46b6b3b04,
+    type: 3}
+  m_PrefabInstance: {fileID: 4571380665952302532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7170d51de97d79e4fb11d3321667acb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6551492639720251435
 Transform:
   m_ObjectHideFlags: 0
