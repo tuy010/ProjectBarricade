@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TurnSys : MonoBehaviour
 {
+    public string sceneName = "GameOverScreen";
     [Title("Spawner")]
     [SerializeField]
     private ZombieSpawner[] zombieSpawners;
@@ -103,6 +105,8 @@ public class TurnSys : MonoBehaviour
 
     private void loadGameOver()
     {
-        //���ӿ��� �� �ε�
+        Cursor.visible = true;                     //마우스 커서가 보이지 않게 함
+        Cursor.lockState = CursorLockMode.None;   //마우스 커서를 고정시킴
+        SceneManager.LoadScene(sceneName);
     }
 }
