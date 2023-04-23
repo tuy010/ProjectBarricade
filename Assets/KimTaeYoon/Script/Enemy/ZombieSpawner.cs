@@ -28,7 +28,7 @@ public class ZombieSpawner : MonoBehaviour
     {
         if (target == null)
             targetPoint = new Vector3(0, 0, 0);
-        if (turnSys == null)
+       if (turnSys == null)
             turnSys = GameObject.FindGameObjectWithTag("Sys").GetComponent<TurnSys>();
         if (sysScoreAndItem == null)
             sysScoreAndItem = GameObject.FindGameObjectWithTag("Sys").GetComponent<ScoreAndItem>();
@@ -49,6 +49,12 @@ public class ZombieSpawner : MonoBehaviour
                 timer = 0;
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(gameObject.transform.position, spawnRadius);
     }
     #endregion
 

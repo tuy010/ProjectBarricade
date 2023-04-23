@@ -1713,6 +1713,7 @@ MonoBehaviour:
   - {fileID: 1716687169}
   isEnd: 0
   player: {fileID: 2751027688726114475}
+  cl: {fileID: 7954147703527890772}
   playTime: 0
   stageTime: 0
   spawnTime: 0

@@ -17,6 +17,8 @@ public class TurnSys : MonoBehaviour
     [Title("Player")]
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private CameraLook cl;
 
     [Title("Timer")]
     [SerializeField]
@@ -94,7 +96,7 @@ public class TurnSys : MonoBehaviour
     {
         isEnd = true;
         player.GetComponent<PlayerInput>().enabled = false;
-        player.GetComponent<Character>().enabled = false;
+        cl.enabled = false;
         player.transform.LookAt(pos);
     }
 }
