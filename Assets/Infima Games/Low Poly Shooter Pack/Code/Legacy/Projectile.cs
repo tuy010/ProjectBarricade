@@ -148,6 +148,22 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
+
+			//좀비 맞추면 실행
+			//If bullet collides with "Zombie" tag
+			if (collision.transform.tag == "Zombie")
+			{
+				Instantiate(bloodImpactPrefabs[Random.Range
+						(0, bloodImpactPrefabs.Length)], transform.position,
+					Quaternion.LookRotation(collision.contacts[0].normal));		//피 이펙트
+
+				//피격 애니메이션 실행
+				collision.transform.gameObject.GetComponent
+					<ZombieScript>().anim.SetTrigger("hitted");	
+
+				//Destroy bullet object
+				Destroy(gameObject);
+			}
 		}
 
 		private IEnumerator DestroyTimer()
