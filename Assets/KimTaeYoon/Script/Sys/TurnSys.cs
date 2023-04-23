@@ -98,5 +98,11 @@ public class TurnSys : MonoBehaviour
         player.GetComponent<PlayerInput>().enabled = false;
         cl.enabled = false;
         player.transform.LookAt(pos);
+        Invoke("loadGameOver", 3f);
+    }
+
+    private void loadGameOver()
+    {
+        //게임오버 씬 로드
     }
 }
