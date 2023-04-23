@@ -215,7 +215,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &154094395
 PrefabInstance:
@@ -224,6 +224,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -424,6 +429,11 @@ PrefabInstance:
       objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
       propertyPath: sysScoreAndItem
       value: 
       objectReference: {fileID: 1173356527}
@@ -547,6 +557,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -616,6 +631,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -735,6 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
       propertyPath: sysScoreAndItem
       value: 
       objectReference: {fileID: 1173356527}
@@ -834,7 +859,7 @@ Transform:
   - {fileID: 1037010512}
   - {fileID: 941729624}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &710854182
 PrefabInstance:
@@ -853,6 +878,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1517433672}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: sysScoreAndItem
@@ -946,6 +976,11 @@ PrefabInstance:
       objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
       propertyPath: sysScoreAndItem
       value: 
       objectReference: {fileID: 1173356527}
@@ -1031,6 +1066,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -1149,6 +1189,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1517433672}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: sysScoreAndItem
@@ -1477,6 +1522,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -1614,7 +1664,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1173356527
 MonoBehaviour:
@@ -1661,7 +1711,11 @@ MonoBehaviour:
   - {fileID: 1545694066}
   - {fileID: 1428863109}
   - {fileID: 1716687169}
+  isEnd: 0
+  player: {fileID: 2751027688726114475}
   playTime: 0
+  stageTime: 0
+  spawnTime: 0
   timer: 0
   spawnCount: 0
   spawnerCount: 0
@@ -1719,6 +1773,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -2065,6 +2124,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
@@ -2144,6 +2208,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1517433672}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: sysScoreAndItem
@@ -2267,6 +2336,11 @@ PrefabInstance:
       objectReference: {fileID: 1517433672}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
       propertyPath: sysScoreAndItem
       value: 
       objectReference: {fileID: 1173356527}
@@ -2368,6 +2442,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1517433672}
+    - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 8405631850318716874, guid: 1ddac1370b870e648b4da333bf7a79ff,
         type: 3}
       propertyPath: sysScoreAndItem
@@ -2896,19 +2975,7 @@ MonoBehaviour:
     m_ActionId: 885a3c54-aad8-4b06-8b4d-8a026bbb94f1
     m_ActionName: Player/New action
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3901256428280983960}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.LowerWeapon, Assembly-CSharp
-        m_MethodName: Lower
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 48620936-869d-449d-a2b8-144b256bad4a
     m_ActionName: Player/Lower Weapon[/Keyboard/h,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
@@ -3846,7 +3913,7 @@ Transform:
   - {fileID: 8182081882492753944}
   - {fileID: 1013087380199010574}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2751027688726114475
 GameObject:
@@ -5236,6 +5303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037010512}
     m_Modifications:
+    - target: {fileID: -7310393556108014889, guid: 910ba39be0027db47925c811f1839ba1,
+        type: 3}
+      propertyPath: turnSys
+      value: 
+      objectReference: {fileID: 1173356528}
     - target: {fileID: 4486112712007632005, guid: 910ba39be0027db47925c811f1839ba1,
         type: 3}
       propertyPath: m_Name
