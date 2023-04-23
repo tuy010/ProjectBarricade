@@ -233,6 +233,12 @@ MonoBehaviour:
   ammunitionCurrent: 0
   ammoHave: 15
   isInfiniteAmmo: 1
+  attachmentManager: {fileID: 0}
+  scopeBehaviour: {fileID: 0}
+  magazineBehaviour: {fileID: 0}
+  muzzleBehaviour: {fileID: 0}
+  laserBehaviour: {fileID: 0}
+  gripBehaviour: {fileID: 0}
 --- !u!114 &9222765669301122164
 MonoBehaviour:
   m_ObjectHideFlags: 0

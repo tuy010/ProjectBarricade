@@ -1315,7 +1315,7 @@ namespace InfimaGames.LowPolyShooterPack
                 case { phase: InputActionPhase.Performed }:
                     //Get the index increment direction for our inventory using the scroll wheel direction. If we're not
                     //actually using one, then just increment by one.
-                    float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+                    float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? -Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
 
                     //Get the next index to switch to.
                     int indexNext = scrollValue > 0 ? inventory.GetNextIndex() : inventory.GetLastIndex();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -45,6 +46,24 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private State nowState;
 
+    [Title("Audio")]
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private float minGrowlSoundDelay;
+    [SerializeField]
+    private float maxGrowlSoundDelay;
+
+    [Title("AudioClip")]
+    [SerializeField]
+    private AudioClip[] growlSounds;
+    [SerializeField]
+    private AudioClip[] takeDmgSounds;
+    [SerializeField]
+    private AudioClip[] attackSounds;
+    [SerializeField]
+    private AudioClip[] dieSounds;
+
     #endregion
 
     #region Field
@@ -59,6 +78,9 @@ public class Enemy : MonoBehaviour
     private Animator animator;
 
     private ScoreAndItem sysScore;
+
+    private float soundTimer;
+    private float nextSoundDelay;
     #endregion
 
     #region UNITY
@@ -70,6 +92,8 @@ public class Enemy : MonoBehaviour
         animDone = true;
         nowState = State.NONE;
         nextState = State.IDLE;
+        soundTimer = 0;
+        nextSoundDelay = Random.Range(minGrowlSoundDelay, maxGrowlSoundDelay);
     }
 
     public void Update()
@@ -105,6 +129,14 @@ public class Enemy : MonoBehaviour
                         dir.Normalize();
                         transform.rotation = Quaternion.LookRotation(dir);
                         transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);
+
+                        soundTimer += Time.deltaTime;
+                        if(soundTimer >= nextSoundDelay)
+                        {
+                            playSound(0);
+                            soundTimer = 0;
+                            nextSoundDelay = Random.Range(minGrowlSoundDelay, maxGrowlSoundDelay);
+                        }
                     }
                     break;
                 case State.ATTACK:
@@ -215,6 +247,7 @@ public class Enemy : MonoBehaviour
         hp -= dmg;
         if (hp <= 0) nextState = State.DYING;
         else if (isStunBullet) nextState = State.STUN;
+        else playSound(2);
     }
 
     private void OffAnimBool()
@@ -229,6 +262,8 @@ public class Enemy : MonoBehaviour
     {
         OffAnimBool();
         animator.SetBool("attack", true);
+
+        playSound(1);
     }
     private void Move()
     {
@@ -246,6 +281,8 @@ public class Enemy : MonoBehaviour
         OffAnimBool();
         animator.SetBool("stun", true);
         animDone = false;
+
+        playSound(2);
     }
     private void Dying()
     {
@@ -260,7 +297,30 @@ public class Enemy : MonoBehaviour
 
         OffAnimBool();
         animator.SetBool("die", true);
+        playSound(3);
     }
 
+    private void playSound(int type)
+    {
+        AudioClip[] clips = null;
+        switch(type)
+        {
+            case 0:
+                clips = growlSounds;
+                break;
+            case 1:
+                clips = attackSounds;
+                break;
+            case 2:
+                clips = takeDmgSounds;
+                break;
+            case 3:
+                clips = dieSounds;
+                break;
+        }
+        AudioClip ac = clips[Random.Range(0, clips.Length)];
+        audioSource.clip = ac;
+        audioSource.Play();
+    }
     #endregion
 }

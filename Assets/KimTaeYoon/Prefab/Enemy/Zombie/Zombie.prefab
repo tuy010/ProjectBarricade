@@ -1034,6 +1034,24 @@ MonoBehaviour:
   attackRange: 0.7
   attackDMG: 1
   nowState: 0
+  audioSource: {fileID: 2123643889394094011}
+  minGrowlSoundDelay: 8
+  maxGrowlSoundDelay: 13
+  growlSounds:
+  - {fileID: 8300000, guid: c5ba6019761a6654a8efea90c02d54ab, type: 3}
+  - {fileID: 8300000, guid: c13b1c1b737f2dd479ec4ce1bc12c6a1, type: 3}
+  - {fileID: 8300000, guid: 791cd5cf35b3c7e44af99ad1ff90fd91, type: 3}
+  - {fileID: 8300000, guid: 460a190bad3afa349926bacd6324aced, type: 3}
+  takeDmgSounds:
+  - {fileID: 8300000, guid: d93b026d34131f945aec9f5a4a706255, type: 3}
+  - {fileID: 8300000, guid: 6dda07cc34f7ebd4ab138b0ab83d5870, type: 3}
+  attackSounds:
+  - {fileID: 8300000, guid: 71156adb7055f394d914bf2ef50788e4, type: 3}
+  - {fileID: 8300000, guid: 919581e60d0e80846aaaeb26c6f5fd3a, type: 3}
+  dieSounds:
+  - {fileID: 8300000, guid: 136f4763b2ae79046a99a3991a2af922, type: 3}
+  - {fileID: 8300000, guid: da48c8401b97cc547afbc8101e71809d, type: 3}
+  - {fileID: 8300000, guid: c5c918378e5200141aea00ab278457ed, type: 3}
 --- !u!82 &2123643889394094011
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1046,18 +1064,18 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 0
+  DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

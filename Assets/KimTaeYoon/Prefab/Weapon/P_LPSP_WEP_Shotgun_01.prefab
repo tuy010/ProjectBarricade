@@ -672,7 +672,7 @@ MonoBehaviour:
   - {fileID: 4610370503018229068}
   - {fileID: 7505049009827267712}
   - {fileID: 6087448054738538697}
-  laserIndex: 0
+  laserIndex: 1
   laserIndexRandom: 0
   laserArray:
   - {fileID: 105842794393537803}
